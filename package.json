@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon ./index.js --exec babel-node -e js"
+    "start": "nodemon ./index.js"
   },
   "author": "",
   "license": "ISC",
@@ -20,9 +20,5 @@
     "pg-protocol": "^1.6.0",
     "sequelize": "^6.33.0",
     "uuid": "^9.0.1"
-  },
-  "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.7.0"
   }
 }

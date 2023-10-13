@@ -1,5 +1,5 @@
-import  { Sequelize} from "sequelize";
-import {BDD} from '../config';
+const { Sequelize } = require ("sequelize");
+const { BDD }  = require ('../config');
 const sequelize = new Sequelize(`postgres://${BDD.user}:${BDD.password}@${BDD.host}/${BDD.bdname}`
 ,{
     dialect: 'postgres',

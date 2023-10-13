@@ -1,4 +1,4 @@
-import {checkJwt} from './jwtMiddleware'
+const { checkJwt}  = require('./jwtMiddleware');
 
 module.exports = app => {
     const utilisateur = require("../controllers/utilisateur.controllers.js");

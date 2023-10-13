@@ -1,5 +1,6 @@
-import { v4 as uuidv4 } from 'uuid';
-import {ACCESS_TOKEN_SECRET}  from "../config.js";
+const { v4: uuidv4 } = require ("uuid");
+const { ACCESS_TOKEN_SECRET }  = require ("../config.js");
+
 const jwt = require('jsonwebtoken');
 
 function generateAccessToken(user) {
@@ -51,7 +52,7 @@ exports.create = (req, res) => {
       return;
     }
   
-    const uuid = uuidv4();
+    const uuid = uuidv4 ();
     // Create a Utilisateur
     const utilisateur = {
       nom: req.body.nom,

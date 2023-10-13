@@ -1,7 +1,8 @@
-import { verify } from 'jsonwebtoken';
-import {ACCESS_TOKEN_SECRET}  from "../config.js";
+const jwt = require('jsonwebtoken');
+const { ACCESS_TOKEN_SECRET } = require("../config.js");
 
-export const checkJwt = (req, res, next) => {
+module.exports = {
+     checkJwt : (req, res, next) => {
     // Get the JWT from the request header.
     const token = req.headers['authorization'];
     let jwtPayload;
@@ -9,9 +10,9 @@ export const checkJwt = (req, res, next) => {
     // Validate the token and retrieve its data.
     try {
         // Verify the payload fields
-        let jwt = token.split(' ')[1];
-        console.log ("Authorization: " + jwt);
-        jwtPayload = verify(jwt, ACCESS_TOKEN_SECRET ,
+        let jwtBearer = token.split(' ')[1];
+        console.log ("Authorization: " + jwtBearer);
+        jwtPayload = jwt.verify(jwtBearer, ACCESS_TOKEN_SECRET ,
         {
           complete: true,
           algorithms: ['HS256'],
@@ -32,4 +33,5 @@ export const checkJwt = (req, res, next) => {
   
     // Pass programmatic flow to the next middleware/controller.
     next();
-  };
+  }
+}
